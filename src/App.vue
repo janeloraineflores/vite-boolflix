@@ -57,7 +57,9 @@
             console.log('Intercettato evento search');
             this.getResultSeries();
             this.getResultsMovies();
-        }     
+        },
+        
+     
     },
 
     created() {

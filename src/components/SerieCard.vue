@@ -16,19 +16,20 @@ export default {
 
 <template>
         <div>
+            <div>
+                <img :src= "'https://image.tmdb.org/t/p/w342/' +  serie.poster_path " alt="">
+            </div>
             <h2>
                Title: {{ serie.name }}
             </h2>
             <h3>
                Original Title: {{ serie.original_name }}
             </h3>
-        </div>
-        <div>
             <p>
-               Original Language:{{ serie.original_language }}
+               Original Language: {{ serie.original_language }}
             </p>
-            <p>
-                Voto:{{ serie.vote_average }}
+            <p ()>
+                Voto: {{ Math.round(serie.vote_average / 2)  }}
             </p>
         </div>
     

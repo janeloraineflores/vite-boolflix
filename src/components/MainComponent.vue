@@ -1,5 +1,6 @@
 <script>
     import MovieCard from './MovieCard.vue'
+    import SerieCard from './SerieCard.vue'
     import { store } from '../store.js';
     export default {
         name: "MainComponent",
@@ -14,6 +15,7 @@
         },
         components: {
             MovieCard,
+            SerieCard
         }
     }
 
@@ -21,7 +23,7 @@
 
 <template>
     <form action=""  @submit.prevent="$emit('search')">
-        <input v-model="store.searchMovie" type="text" class="form-control" id="movie-name" placeholder="Search a movie">
+        <input v-model="store.searchMovieSerie" type="text" class="form-control" id="movie-name" placeholder="Search a movie">
     
         <button type="submit" class="btn btn-primary">
             Search
@@ -31,6 +33,12 @@
     <div  v-for="(movie, i) in store.movies" :key="i">
         <MovieCard :movie="movie" />
     </div>
+
+    <div  v-for="(serie, i) in store.series" :key="i">
+        <SerieCard :serie="serie" />
+    </div>
+
+
 
 </template>
 

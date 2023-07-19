@@ -19,13 +19,14 @@
     },
 
     methods: {
-      getResults() {
+      getResultsMovies() {
         axios
                 .get('https://api.themoviedb.org/3/search/movie?api_key=076c27a3470c152938c7f03362b72725&query&query=fa', {
                   params: {
-                    query: this.store.searchMovie
+                    query: this.store.searchMovieSerie
                   }
                 })
+                
                 .then(response => {
                     this.store.movies = response.data.results
                 })
@@ -35,14 +36,33 @@
                     this.store.movies = [];
                 });
       },
+
+      getResultSeries() {
+        axios 
+            .get ('https://api.themoviedb.org/3/search/tv?api_key=076c27a3470c152938c7f03362b72725&query=scrubs', {
+                      params: {
+                        query: this.store.searchMovieSerie
+                      }
+                    })
+            .then(response => {
+                     this.store.series = response.data.results
+                 })
+
+            .catch(error => {
+                console.log('Errore nella chiamata');
+                this.store.movies = [];
+            });
+          },
       performSearch() {
             console.log('Intercettato evento search');
-            this.getResults();
+            this.getResultSeries();
+            this.getResultsMovies();
         }     
     },
 
     created() {
-        this.getResults();
+        this.getResultSeries();
+        this.getResultsMovies();
     }
 
   }

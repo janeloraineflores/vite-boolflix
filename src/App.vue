@@ -23,14 +23,17 @@
         axios
                 .get('https://api.themoviedb.org/3/search/movie?api_key=076c27a3470c152938c7f03362b72725&query&query=fa', {
                   params: {
-                    title: this.store.searchMovie
+                    query: this.store.searchMovie
                   }
                 })
                 .then(response => {
                     this.store.movies = response.data.results
-                    
-                    
                 })
+
+                .catch(error => {
+                    console.log('Errore nella chiamata');
+                    this.store.movies = [];
+                });
       },
       performSearch() {
             console.log('Intercettato evento search');
@@ -49,7 +52,7 @@
 <template>
   <HeaderComponent />
 
-  <MainComponent @search="performSearch()" /> 
+  <MainComponent  @search="performSearch()" /> 
 
   <FooterComponent />
 </template>

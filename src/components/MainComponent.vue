@@ -1,8 +1,9 @@
 <script>
     import MovieCard from './MovieCard.vue'
-   import { store } from '../store.js';
+    import { store } from '../store.js';
     export default {
         name: "MainComponent",
+        emits: ['search'],
         data() {
             return {
                store

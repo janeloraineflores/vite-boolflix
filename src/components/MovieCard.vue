@@ -17,18 +17,18 @@ export default {
 <template>
         <div>
             <h2>
-                {{ movie.title }}
+               Title: {{ movie.title }}
             </h2>
             <h3>
-                {{ movie.original_title }}
+               Original Title: {{ movie.original_title }}
             </h3>
         </div>
         <div>
             <p>
-               {{ movie.original_language }}
+               Original Language:{{ movie.original_language }}
             </p>
             <p>
-                {{ movie.vote_average }}
+                Voto:{{ movie.vote_average }}
             </p>
         </div>
     

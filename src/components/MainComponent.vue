@@ -4,7 +4,6 @@
     import { store } from '../store.js';
     export default {
         name: "MainComponent",
-        emits: ['search'],
         data() {
             return {
                store
@@ -22,26 +21,31 @@
 </script>
 
 <template>
-    <form action=""  @submit.prevent="$emit('search')">
-        <input v-model="store.searchMovieSerie" type="text" class="form-control" id="movie-name" placeholder="Search a movie">
     
-        <button type="submit" class="btn btn-primary">
-            Search
-        </button>
-    </form>
-   
-    <div  v-for="(movie, i) in store.movies" :key="i">
-        <MovieCard :movie="movie" />
-    </div>
-
-    <div  v-for="(serie, i) in store.series" :key="i">
-        <SerieCard :serie="serie" />
-    </div>
-
-
-
+   <main>
+        <div class="container">
+            <div class="row">
+                <div class=" col-3 p-2 " id="my-col" v-for="(movie, i) in store.movies" :key="i">
+                    <MovieCard :movie="movie" />
+                </div>
+                <div class="col-3 p-2 " id="my-col" v-for="(serie, i) in store.series" :key="i">
+                    <SerieCard :serie="serie" />
+                </div>
+            </div>
+        </div>
+   </main>
 </template>
 
 <style lang="scss" scoped>
+
+    main {
+        background-color: black;
+       
+        #my-col {
+            position: relative;
+        }
+    
+        
+    }
 
 </style>

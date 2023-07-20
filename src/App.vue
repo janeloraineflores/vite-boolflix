@@ -21,7 +21,7 @@
     methods: {
       getResultsMovies() {
         axios
-                .get('https://api.themoviedb.org/3/search/movie?api_key=076c27a3470c152938c7f03362b72725&query&query=fa', {
+                .get('https://api.themoviedb.org/3/search/movie?api_key=076c27a3470c152938c7f03362b72725&language=it_IT&query&query=fa', {
                   params: {
                     query: this.store.searchMovieSerie
                   }
@@ -39,7 +39,7 @@
 
       getResultSeries() {
         axios 
-            .get ('https://api.themoviedb.org/3/search/tv?api_key=076c27a3470c152938c7f03362b72725&query=scrubs', {
+            .get ('https://api.themoviedb.org/3/search/tv?api_key=076c27a3470c152938c7f03362b72725&language=it_IT&query=scrubs', {
                       params: {
                         query: this.store.searchMovieSerie
                       }
@@ -72,11 +72,11 @@
 </script>
 
 <template>
-  <HeaderComponent />
+    <HeaderComponent @search="performSearch()"/>
 
-  <MainComponent  @search="performSearch()" /> 
+    <MainComponent /> 
 
-  <FooterComponent />
+    <FooterComponent />
 </template>
 
 <style lang="scss">

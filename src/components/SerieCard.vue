@@ -44,8 +44,8 @@ export default {
 
             }
 
-            else {
-                return 'https://cdn-icons-png.flaticon.com/128/2107/2107957.png'
+            else  {
+                return 'https://www.iconsdb.com/icons/preview/white/outline-star-xxl.png'
             }
         } 
     }

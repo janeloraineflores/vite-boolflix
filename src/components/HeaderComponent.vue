@@ -24,25 +24,17 @@
                         BOOLFLIX
                     </h1>
                 </div>
-                <ul class="list-unstyled mx-3 mt-2">
-                    <li class="d-inline">
-                        <a class="text-decoration-none text-light" href="#"> Home </a>
-                    </li>
-                    <li class="d-inline mx-2">
-                        <a class="text-decoration-none text-light" href="#"> Movies </a>
-                    </li>
-                    <li class="d-inline mx-2">
-                        <a class="text-decoration-none text-light" href="#"> TV Series </a>
-                    </li>
-                    <li class="d-inline mx-2">
-                        <a class="text-decoration-none text-light" href="#"> My List </a>
-                    </li>
-                </ul>
+                <div>
+                    <button class="link text-light ms-2"> Home </button>
+                    <button class="link text-light" @click="$emit('searchMovies')"> Movies </button>
+                    <button class="link text-light"> TV Series </button>
+                    <button class="link text-light"> My List </button>
+                </div>
             </div>
             <form action=""  @submit.prevent="$emit('search')" class="d-flex align-items-center">
                 <input v-model="store.searchMovieSerie" type="text" class="form-control" id="movie-name" placeholder="Search">
             
-                <button type="submit">
+                <button class="search" type="submit">
                     <i class="bi bi-search"></i>
                 </button>
             </form>
@@ -55,8 +47,16 @@
 
     header {
         background-color: black;
-        
-        button {
+
+        .link {
+            color: white;
+            font-size: 20px;
+            border: none;
+            background-color: rgba(255, 254, 254, 0);
+            margin-right: 30px;
+        }
+
+        .search {
             width: 100px;
             height: 100px;
             border: none;

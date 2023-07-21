@@ -37,17 +37,8 @@ export default {
             else {
                 return 'https://flagicons.lipis.dev/flags/4x3/eu.svg'
             }
-        },
-        getStars(rate) {
-            if (rate == '1') {
-                return 'https://cdn-icons-png.flaticon.com/128/2107/2107957.png'
-
-            }
-
-            else {
-                return 'https://www.iconsdb.com/icons/preview/white/outline-star-xxl.png' 
-            }
         }
+    
     } 
     
 }
@@ -68,8 +59,13 @@ export default {
             <div class="flag-container">
                 <img :src="getFlag(movie.original_language)" alt="">
             </div>
-            <div class="star-container">
-                <img :src="getStars(Math.round(movie.vote_average / 2))" alt="">
+            <div class="my-2">
+                <span v-for="numero in Math.round(movie.vote_average / 2) " :key="numero">
+                    <i class="bi bi-star-fill"></i>
+                </span>
+                <span v-for="numero in (5 - Math.round(movie.vote_average / 2)) " :key="numero">
+                    <i class="bi bi-star"></i>
+                </span>
             </div>
             <p>
                 {{ movie.overview }}
@@ -102,18 +98,20 @@ export default {
         color: white;
         display: none;
         width: 100%;
-        height: 100%;
+        height: 487px;
         position: absolute;
         top: 0;
         left: 0;
         background-color: rgba(0, 0, 0, 0.753);
         padding: 20px;
+        overflow-y: auto;
     }
     .second-card-two {
-        height: 100%;
+        height: 487px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        
     }
     
     #my-col:hover .second-card{
@@ -140,6 +138,10 @@ export default {
             width: 100%;
             height: 100%;
         }
+    }
+
+    span {
+        color: #FFA500;
     }
 
 </style>
